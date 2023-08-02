@@ -20,3 +20,9 @@ Implements a Total-Field Scattered-Field.
 
 ## 1Ddielectric.py - Program 3.6:
 Simulates a dielectric with a relative permittivity of 9 from node 100, and free space before node 100.
+
+## 1Dlossy.py - Program 3.7:
+Simulates a lossy dielectric to the right of node 100, free space to the left.
+
+## 1Dmatched.py - Program 3.8:
+Simulates a lossless dielectric region followed by a lossy layer with impedance matched to the lossless dielectric.
