@@ -14,3 +14,9 @@ Building on 1DbareBones.py, this program uses an additive source at node 50.
 
 ## generateWaterfall.py:
 This program, given a multi-dimensional array, will create a waterfall plot from the given data.
+
+## 1Dtfsf.py - Program 3.5:
+Implements a Total-Field Scattered-Field.
+
+## 1Ddielectric.py - Program 3.6:
+Simulates a dielectric with a relative permittivity of 9 from node 100, and free space before node 100.
