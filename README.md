@@ -26,3 +26,6 @@ Simulates a lossy dielectric to the right of node 100, free space to the left.
 
 ## 1Dmatched.py - Program 3.8:
 Simulates a lossless dielectric region followed by a lossy layer with impedance matched to the lossless dielectric.
+
+## improved1.py - Program 4.6:
+Improved version of the 1DbareBones.py code, which implements a Grid object. This grid will become more useful as we progress to more complex simulations.
