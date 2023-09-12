@@ -4,7 +4,7 @@ This is a collection of my implementation of code from ['Understanding the FDTD 
 ## Background
 Initially, I implemented this code into Swift in a group project during my 1st year as a physics student. Now, while working on my skills as a software developer, I'm re-coding this project into Python, due to the easier graphing functionality.
 
-# Programs:
+# 1D simulations:
 
 ## 1DbareBones.py - Program 3.1:
 This is the first EM propagation program in the book, Program 3.1, showing the propagation of an EM wave through free space across a grid of size 200.
@@ -35,3 +35,6 @@ Further improvement of splitting actions into separate functions.
 
 ## improved3.py - Program 4.17:
 Additional modulation from improved2.py
+
+## Additional edits:
+I've moved the 1D simulation programs into a separate folder for a cleaner file structure.

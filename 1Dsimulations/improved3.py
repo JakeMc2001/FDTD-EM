@@ -1,3 +1,7 @@
+# import parent file to sys path
+import sys
+sys.path.append('../')
+
 import numpy as np
 from generateWaterfall import *
 from implementGridObj import *

@@ -1,3 +1,6 @@
+# import parent file to sys path
+import sys
+sys.path.append('../')
 import numpy as np
 from matplotlib import pyplot as plt
 from generateWaterfall import *

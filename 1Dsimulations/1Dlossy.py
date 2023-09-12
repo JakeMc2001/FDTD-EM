@@ -1,10 +1,12 @@
+# import parent file to sys path
+import sys
+sys.path.append('../')
 import numpy as np
 from matplotlib import pyplot as plt
 from generateWaterfall import *
 
 SIZE = 200
 LOSS = 0.01
-LOSS_LAYER = 180
 
 def main():
     # initialize Ez and Hy arrays with zeros
@@ -14,8 +16,6 @@ def main():
     # initialize coefficient arrays
     ceze = np.zeros(SIZE, dtype=float)
     cezh = np.zeros(SIZE, dtype=float)
-    chyh = np.zeros(SIZE-1, dtype=float)
-    chye = np.zeros(SIZE-1, dtype=float)
 
     # define constants
     imp0 = 377.0
@@ -26,24 +26,12 @@ def main():
 
     # set electric-field update coefficients
     for mm in range(0,SIZE):
-        if mm < 100: 
+        if mm < 100:    # free space
             ceze[mm] = 1.0
             cezh[mm] = imp0
-        elif mm < LOSS_LAYER:
-            ceze[mm] = 1.0
-            cezh[mm] = imp0 / 9.0
-        else: 
+        else:   # lossy dielectric
             ceze[mm] = (1.0 - LOSS) / (1.0 + LOSS)
             cezh[mm] = imp0 / 9.0 / (1.0 + LOSS)
-
-    # set magnetic-field update coefficients
-    for mm in range(0,SIZE-1):
-        if mm < LOSS_LAYER:
-            chyh[mm] = 1.0
-            chye[mm] = 1.0 / imp0
-        else:
-            chyh[mm] = (1.0 - LOSS) / (1.0 + LOSS)
-            chye[mm] = 1.0 / imp0 / (1.0 + LOSS)
 
     # define arrays to store time steps and ez[50] values
     timeSteps = np.linspace(0,maxTime,maxTime)
@@ -52,7 +40,7 @@ def main():
     for qTime in timeSteps:
         #update magnetic field
         for mm in range(0,SIZE-1):
-            hy[mm] = chyh[mm] * hy[mm] + chye[mm] * (ez[mm + 1] - ez[mm])
+            hy[mm] = hy[mm] + (ez[mm + 1] - ez[mm]) /imp0
 
         # correction for Hy adjacent to TFSF boundary
         hy[49] -= np.exp(-(qTime -30.0)*(qTime-30.0)/100) /imp0
@@ -72,6 +60,6 @@ def main():
         if currentIndex % 10==0:
             simData[int(currentIndex/10)] = ez
     # create a waterfall plot from the simulation data
-    createWaterfall(simData, 0.5, maxTime, '1Dmatched plot')
+    createWaterfall(simData, 0.5, maxTime, '1Dlossy plot')
 
 main()
