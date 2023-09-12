@@ -32,3 +32,6 @@ Improved version of the 1DbareBones.py code, which implements a Grid object. Thi
 
 ## improved2.py - Program 4.11:
 Further improvement of splitting actions into separate functions.
+
+## improved3.py - Program 4.17:
+Additional modulation from improved2.py
